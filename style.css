@@ -149,3 +149,8 @@ button {
   font-weight: 800;
   font-size: 20px;
 }
+
+#loading {
+  font-size: 20px;
+  font-weight: 800;
+}
