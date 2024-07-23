@@ -19,15 +19,19 @@ function translate(value) {
 
 const input = document.querySelector("#userInput");
 
-input.addEventListener(
-  "input",
-  (e) => {
-    translate(input.value);
-  },
-  false
-);
+// input.addEventListener(
+//   "input",
+//   (e) => {
+//     translate(input.value);
+//   },
+//   false
+// );
 
 document.querySelector("#clear").addEventListener("click", () => {
   input.value = "";
   translate("");
+});
+
+document.querySelector("#submit").addEventListener("click", () => {
+  translate(input.value);
 });
