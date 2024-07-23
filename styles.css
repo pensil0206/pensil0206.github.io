@@ -1,0 +1,48 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    height: 80%;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.left-layout, .right-layout {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left-layout {
+    border-right: 1px solid #ccc;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    position: absolute;
+    top: 370px; /* 부모 요소의 위에서 20픽셀 아래로 이동 */
+    left: 400px; /* 부모 요소의 왼쪽에서 30픽셀 오른쪽으로 이동 */
+  
+}
+
