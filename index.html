@@ -14,35 +14,101 @@
   </head>
   <body>
     <div id="loading">로드 중...</div>
-    <div id="app" class="container" style="display: none">
-      <div class="section">
-        <h2 class="section-title">한국어</h2>
-        <div class="input-container">
-          <textarea
-            class="text-input"
-            type="text"
-            id="userInput"
-            placeholder="번역할 내용을 입력하세요"
-          ></textarea>
+    <div id="app" class="app-container" style="display: none">
+      <div class="translation-area-container">
+        <div class="translation-area">
+          <div class="section">
+            <h2 class="section-title">펜실어</h2>
+            <div class="input-container">
+              <textarea
+                class="text-input"
+                type="text"
+                id="userInput"
+                placeholder="번역할 내용을 입력하세요"
+              ></textarea>
 
-          <div class="actions">
-            <button id="submit" class="submit-button">번역하기</button>
-            <button id="clear" class="clear-button">
-              <img src="assets/x.png" class="clear-button-image" alt="X" />
-            </button>
+              <div class="actions">
+                <button id="submit" class="submit-button">번역하기</button>
+                <button id="clear" class="clear-button">
+                  <img src="assets/x.png" class="clear-button-image" alt="X" />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <h2 class="section-title">한국어</h2>
+            <div class="input-container">
+              <div id="notFound" style="display: none">
+                문장에 번역 가능한 단어가 존재하지 않습니다
+              </div>
+              <textarea class="text-input" readonly id="displayArea"></textarea>
+            </div>
           </div>
         </div>
       </div>
-      <div class="section">
-        <h2 class="section-title">펜실어</h2>
-        <div class="input-container">
-          <div id="notFound" style="display: none">
-            문장에 번역 가능한 단어가 존재하지 않습니다
+      <div class="sidebar-area">
+        <div class="sidebar-overlay-container">
+          <div class="sidebar-content">
+            <div class="sidebar-content-title">사전</div>
           </div>
-          <textarea class="text-input" readonly id="displayArea"></textarea>
+        </div>
+        <div class="sidebar">
+          <button
+            class="sidebar-button active"
+            data-tippy-content="정보"
+            data-tippy-placement="right"
+            data-open-tab="info"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+              <path d="M12 9h.01" />
+              <path d="M11 12h1v4h1" />
+            </svg>
+          </button>
+          <div
+            class="sidebar-button"
+            data-open-tab="dict"
+            data-tippy-content="사전"
+            data-tippy-placement="right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-book"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+              <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+              <path d="M3 6l0 13" />
+              <path d="M12 6l0 13" />
+              <path d="M21 6l0 13" />
+            </svg>
+          </div>
         </div>
       </div>
     </div>
-    <script type="module" src="script.js"></script>
   </body>
+
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <script type="module" src="script.js" async></script>
 </html>

@@ -78,3 +78,5 @@ input.addEventListener("keydown", (e) => {
 });
 
 input.text = ""; // reset
+
+tippy("[data-tippy-content]");
