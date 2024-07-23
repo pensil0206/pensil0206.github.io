@@ -108,6 +108,7 @@ const sidebarOverlayContainer = document.querySelector(
 const tabButtons = sidebarButtonsContainer.querySelectorAll("[data-open-tab]");
 
 const tabContents = {};
+const tabButtonElements = {};
 let isOpen = false;
 let openId = null;
 
@@ -117,10 +118,15 @@ document.querySelectorAll("[data-tab-id]").forEach((tab) => {
 
 tabButtons.forEach((button) => {
   const tabId = button.getAttribute("data-open-tab");
+  tabButtonElements[tabId] = button;
   button.addEventListener("click", (e) => {
     if (tabId === openId && isOpen) {
       sidebarOverlayContainer.classList.remove("open");
       isOpen = false;
+      openId = false;
+      Object.values(tabButtonElements).forEach((el) =>
+        el.classList.remove("active")
+      );
       return;
     }
 
@@ -130,6 +136,15 @@ tabButtons.forEach((button) => {
     for (const id in tabContents) {
       const el = tabContents[id];
       el.style.display = tabId === id ? "" : "none";
+    }
+
+    for (const id in tabButtonElements) {
+      const el = tabButtonElements[id];
+      if (id === tabId) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
     }
   });
 });
