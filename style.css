@@ -143,3 +143,9 @@ button {
 .submit-button:hover {
   background-color: #65b9be;
 }
+
+#notFound {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 800;
+  font-size: 20px;
+}

@@ -4,17 +4,43 @@ const translationData = [
 ];
 
 const getTranslatedText = (v) => {
+  /**
+   * @type {string}
+   */
   let text = v;
+  let matchCount = 0;
   for (const [from, to] of translationData) {
+    if (from.test(text)) matchCount++;
     text = text.replace(from, to);
   }
 
-  return text;
+  return {
+    text,
+    matches: matchCount,
+  };
 };
+
+/**
+ * @type {HTMLTextAreaElement}
+ */
+const displayArea = document.querySelector("#displayArea");
+/**
+ * @type {HTMLElement}
+ */
+const notFoundArea = document.querySelector("#notFound");
 
 // Function to handle input submission
 function translate(value) {
-  document.querySelector("#displayArea").value = getTranslatedText(value);
+  const result = getTranslatedText(value);
+
+  notFoundArea.style.display = result.matches === 0 ? "block" : "none";
+
+  if (result.matches > 0) {
+    displayArea.value = result.text;
+  }
+
+  // displayArea.value =
+  //   getTranslatedText(value);
 }
 
 /**
