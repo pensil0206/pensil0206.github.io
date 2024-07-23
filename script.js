@@ -17,15 +17,10 @@ function translate(value) {
   document.querySelector("#displayArea").value = getTranslatedText(value);
 }
 
+/**
+ * @type {HTMLTextAreaElement}
+ */
 const input = document.querySelector("#userInput");
-
-// input.addEventListener(
-//   "input",
-//   (e) => {
-//     translate(input.value);
-//   },
-//   false
-// );
 
 document.querySelector("#clear").addEventListener("click", () => {
   input.value = "";
@@ -35,3 +30,13 @@ document.querySelector("#clear").addEventListener("click", () => {
 document.querySelector("#submit").addEventListener("click", () => {
   translate(input.value);
 });
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    translate(input.value);
+    return;
+  }
+});
+
+input.text = ""; // reset
