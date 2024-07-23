@@ -1,20 +1,56 @@
-const translationData = [
-  [/해주세요/g, "돈주세요"],
-  // 추가 예시: [/안녕하세요/g, '펜바실보']
-];
+const datasetUrl = "words.json";
+
+let translationData;
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const data = await (await fetch(datasetUrl)).json();
+
+  translationData = Object.entries(data);
+
+  console.log("Loaded translations", translationData);
+
+  document.querySelector("#loading").style.display = "none";
+  document.querySelector("#app").style.display = "";
+});
 
 const getTranslatedText = (v) => {
+  /**
+   * @type {string}
+   */
   let text = v;
+  let matchCount = 0;
   for (const [from, to] of translationData) {
-    text = text.replace(from, to);
+    if (text.includes(from)) matchCount++;
+    text = text.split(from).join(to);
   }
 
-  return text;
+  return {
+    text,
+    matches: matchCount,
+  };
 };
+
+/**
+ * @type {HTMLTextAreaElement}
+ */
+const displayArea = document.querySelector("#displayArea");
+/**
+ * @type {HTMLElement}
+ */
+const notFoundArea = document.querySelector("#notFound");
 
 // Function to handle input submission
 function translate(value) {
-  document.querySelector("#displayArea").value = getTranslatedText(value);
+  const result = getTranslatedText(value);
+
+  notFoundArea.style.display = result.matches === 0 ? "block" : "none";
+
+  if (result.matches > 0) {
+    displayArea.value = result.text;
+  } else displayArea.value = "";
+
+  // displayArea.value =
+  //   getTranslatedText(value);
 }
 
 /**
