@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>펜실 번역기</title>
+    <title>펜실어 번역기</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>펜실 번역기</h1>
-        <textarea id="inputText" placeholder="번역할 문장을 입력해주세요"></textarea>
-        <button onclick="translateText()">번역하기</button>
-        <div id="outputText"></div>
+        <div class="left-layout">
+            <h2>한국어</h2>
+            <input type="text" id="userInput" placeholder="번역할 내용을 입력하세요">
+            <button id="submitButton">번역</button>
+        </div>
+        <div class="right-layout">
+            <h2>펜실어</h2>
+            <div id="displayArea"></div>
+        </div>
     </div>
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
