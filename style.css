@@ -207,12 +207,15 @@ button {
   position: absolute;
   height: 100%;
   left: 0;
-  transform: translateX(-100%);
 
   width: 320px;
   border-left: 1px soild rgba(255, 255, 255, 0.2);
   background-color: #363c49;
-  transition: transform ease-out 0.2s;
+  transition: transform 0.4s cubic-bezier(0, 0.55, 0.45, 1);
+}
+
+.sidebar-overlay-container.open {
+  transform: translateX(-100%);
 }
 
 .sidebar {
@@ -226,4 +229,41 @@ button {
   padding: 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   font-weight: 800;
+}
+
+.sidebar-content-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar-content {
+  flex-grow: 1;
+  height: 0;
+  overflow: scroll;
+}
+
+.dict-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px;
+  gap: 8px;
+}
+
+.dict-item-from {
+  margin: 0;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.dict-item-to {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.info-tab {
+  padding: 16px;
+}
+
+p {
+  margin: 0;
 }

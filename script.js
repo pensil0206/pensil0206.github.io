@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   console.log("Loaded translations", translationData);
 
+  generateDictionary();
+
   document.querySelector("#loading").style.display = "none";
   document.querySelector("#app").style.display = "";
 });
@@ -80,3 +82,54 @@ input.addEventListener("keydown", (e) => {
 input.text = ""; // reset
 
 tippy("[data-tippy-content]");
+
+/**
+ * @type {HTMLTemplateElement}
+ */
+const dictItemTemplate = document.querySelector("template#dict-item-template");
+const dictItemContainer = document.querySelector("#dict-word-list");
+
+const generateDictionary = () => {
+  for (const [from, to] of translationData) {
+    const clone = dictItemTemplate.content.cloneNode(true);
+
+    clone.querySelector(".dict-item-from").innerText = from;
+    clone.querySelector(".dict-item-to").innerText = to;
+
+    dictItemContainer.appendChild(clone);
+  }
+};
+
+const sidebarButtonsContainer = document.querySelector(".sidebar");
+const sidebarOverlayContainer = document.querySelector(
+  ".sidebar-overlay-container"
+);
+
+const tabButtons = sidebarButtonsContainer.querySelectorAll("[data-open-tab]");
+
+const tabContents = {};
+let isOpen = false;
+let openId = null;
+
+document.querySelectorAll("[data-tab-id]").forEach((tab) => {
+  tabContents[tab.getAttribute("data-tab-id")] = tab;
+});
+
+tabButtons.forEach((button) => {
+  const tabId = button.getAttribute("data-open-tab");
+  button.addEventListener("click", (e) => {
+    if (tabId === openId && isOpen) {
+      sidebarOverlayContainer.classList.remove("open");
+      isOpen = false;
+      return;
+    }
+
+    sidebarOverlayContainer.classList.add("open");
+    isOpen = true;
+    openId = tabId;
+    for (const id in tabContents) {
+      const el = tabContents[id];
+      el.style.display = tabId === id ? "" : "none";
+    }
+  });
+});

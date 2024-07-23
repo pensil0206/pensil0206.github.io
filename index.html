@@ -48,8 +48,23 @@
       </div>
       <div class="sidebar-area">
         <div class="sidebar-overlay-container">
-          <div class="sidebar-content">
+          <div class="sidebar-content-container" data-tab-id="info">
+            <div class="sidebar-content-title">정보</div>
+            <div class="sidebar-content info-tab">
+              <p>어쨌든 펜실어를 한국어로 번역해주는 앱입니다.</p>
+              <img src="assets/x.png" alt="'X'" />
+            </div>
+          </div>
+          <div class="sidebar-content-container" data-tab-id="dict">
             <div class="sidebar-content-title">사전</div>
+            <div class="sidebar-content" id="dict-word-list">
+              <template id="dict-item-template">
+                <div class="dict-item">
+                  <h4 class="dict-item-from">FROM</h4>
+                  <div class="dict-item-to">TO</div>
+                </div>
+              </template>
+            </div>
           </div>
         </div>
         <div class="sidebar">
