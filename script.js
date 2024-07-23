@@ -1,5 +1,4 @@
-const datasetUrl =
-  "https://raw.githubusercontent.com/paring-chan/pensil0206.github.io/main/words.json";
+const datasetUrl = "words.json";
 
 let translationData;
 
