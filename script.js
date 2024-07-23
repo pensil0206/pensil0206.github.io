@@ -1,4 +1,3 @@
-
 // Function to handle input submission
 function handleSubmit() {
     // Get the value of the input field with id="userInput"
@@ -33,4 +32,3 @@ document.getElementById("userInput").addEventListener("keypress", function(event
         handleSubmit();
     }
 });
-
