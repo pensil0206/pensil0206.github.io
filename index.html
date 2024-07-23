@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>펜실어 번역기</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+  </head>
+  <body>
     <div class="container">
-        <div class="left-layout">
-            <h2>한국어</h2>
-            <input type="text" id="userInput" placeholder="번역할 내용을 입력하세요">
-            <button id="submitButton">번역</button>
+      <div class="section">
+        <h2 class="section-title">한국어</h2>
+        <div class="input-container">
+          <button id="clear" class="clear-button">
+            <img src="assets/x.png" class="clear-button-image" alt="X" />
+          </button>
+          <textarea
+            class="text-input"
+            type="text"
+            id="userInput"
+            placeholder="번역할 내용을 입력하세요"
+          ></textarea>
         </div>
-        <div class="right-layout">
-            <h2>펜실어</h2>
-            <div id="displayArea"></div>
-        </div>
+      </div>
+      <div class="section">
+        <h2 class="section-title">펜실어</h2>
+        <textarea class="text-input" readonly id="displayArea"></textarea>
+      </div>
     </div>
-    <script src="./script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
+</html>
