@@ -96,11 +96,9 @@ button {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  position: relative;
 }
 
 .clear-button {
-  position: absolute;
   right: 0;
   bottom: 0;
   cursor: pointer;
@@ -120,4 +118,28 @@ button {
 .clear-button-image {
   width: 24px;
   height: 24px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+#submit {
+  flex-grow: 1;
+}
+
+.submit-button {
+  outline: none;
+  border: none;
+  border-radius: 16px;
+  padding: 8px 0;
+  color: white;
+  transition: all ease 0.2s;
+  cursor: pointer;
+  background-color: #4c8b8e;
+}
+
+.submit-button:hover {
+  background-color: #65b9be;
 }
