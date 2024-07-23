@@ -26,3 +26,8 @@ input.addEventListener(
   },
   false
 );
+
+document.querySelector("#clear").addEventListener("click", () => {
+  input.value = "";
+  translate("");
+});
