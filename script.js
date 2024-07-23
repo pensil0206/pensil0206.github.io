@@ -114,6 +114,7 @@ let openId = null;
 
 document.querySelectorAll("[data-tab-id]").forEach((tab) => {
   tabContents[tab.getAttribute("data-tab-id")] = tab;
+  tab.style.display = "none";
 });
 
 tabButtons.forEach((button) => {
