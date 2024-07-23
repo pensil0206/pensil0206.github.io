@@ -18,15 +18,17 @@ const getTranslatedText = (v) => {
    * @type {string}
    */
   let text = v;
-  let matchCount = 0;
   for (const [from, to] of translationData) {
-    if (text.includes(from)) matchCount++;
-    text = text.split(from).join(to);
+    if (text.includes(from))
+      return {
+        text: to,
+        exists: true,
+      };
   }
 
   return {
     text,
-    matches: matchCount,
+    exists: false,
   };
 };
 
@@ -43,9 +45,9 @@ const notFoundArea = document.querySelector("#notFound");
 function translate(value) {
   const result = getTranslatedText(value);
 
-  notFoundArea.style.display = result.matches === 0 ? "block" : "none";
+  notFoundArea.style.display = !result.exists ? "block" : "none";
 
-  if (result.matches > 0) {
+  if (result.exists) {
     displayArea.value = result.text;
   } else displayArea.value = "";
 
