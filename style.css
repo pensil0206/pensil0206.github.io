@@ -6,6 +6,8 @@ body {
     height: 100vh;
     align-items: center;
     justify-content: center;
+    background: black;
+    color: white;
 }
 
 .container {
@@ -38,9 +40,5 @@ input[type="text"] {
 }
 
 button {
-    padding: 10px 20px;
-    position: absolute;
-    top: 370px; /* 부모 요소의 위에서 20픽셀 아래로 이동 */
-    left: 400px; /* 부모 요소의 왼쪽에서 30픽셀 오른쪽으로 이동 */
-  
+    padding: 6px 16px;
 }
